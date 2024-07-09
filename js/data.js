@@ -133,6 +133,7 @@
 var tempData = {}
 
 var autoBuyEnabled = true
+var autoTouchTheEye = false
 
 const updateSpeed = 20
 const baseLifespan = 365 * 70

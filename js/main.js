@@ -465,6 +465,10 @@ function togglePause() {
     gameData.paused = !gameData.paused
 }
 
+function toggleAutoTouchTheEye() {
+    toggleAutoTouchTheEye = !toggleAutoTouchTheEye;
+}
+
 function forceAutobuy() {
     autoBuyEnabled = true
 }
@@ -624,6 +628,13 @@ function autoBuy() {
             }
         }
     }   
+}
+
+function autoTouchTheEye()
+{
+    if (autoTouchTheEye
+        && !isAlive())
+        rebirthOne();
 }
 
 function increaseDays() {
@@ -1279,6 +1290,7 @@ function update(needUpdateUI = true) {
     autoPerks()
     autoPromote()
     autoBuy()
+    autoTouchTheEye()
     applyExpenses()
     for (const key in gameData.taskData) {
         const task = gameData.taskData[key]
