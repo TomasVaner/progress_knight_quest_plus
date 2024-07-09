@@ -251,7 +251,10 @@ function renderJobs() {
 
         const row = getRowByName(task.name)
 
-        task.querySelector(".level", row).textContent = formatLevel(task.level)
+        const level_element = task.querySelector(".level", row)
+        level_element.textContent = formatLevel(task.level)
+        if (task.maxLevel < task.level)
+            level_element.style.color = "green"
         task.querySelector(".xpGain", row).textContent = task.getXpGainFormatted()
         task.querySelector(".xpLeft", row).textContent = task.getXpLeftFormatted()
 
@@ -290,7 +293,10 @@ function renderSkills() {
 
         const row = getRowByName(task.name)
 
-        task.querySelector(".level", row).textContent = formatLevel(task.level)
+        const level_element = task.querySelector(".level", row)
+        level_element.textContent = formatLevel(task.level)
+        if (task.maxLevel < task.level)
+            level_element.style.color = "green"
         task.querySelector(".xpGain", row).textContent = task.getXpGainFormatted()
         task.querySelector(".xpLeft", row).textContent = task.getXpLeftFormatted()
 
