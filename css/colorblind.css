@@ -3,6 +3,10 @@
     color: white;
 }
 
+.colorblind .surpasses {
+    color: lightgreen
+}
+
 .colorblind .panel {
     background-color: rgb(46, 46, 46);
 }

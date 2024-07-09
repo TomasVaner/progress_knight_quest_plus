@@ -255,7 +255,9 @@ function renderJobs() {
         const level_element = task.querySelector(".level", row)
         level_element.textContent = formatLevel(task.level)
         if (task.maxLevel < task.level)
-            level_element.style.color = "green"
+            level_element.classList.add('surpasses');
+        else
+            level_element.classList.remove('surpasses');
         task.querySelector(".xpGain", row).textContent = task.getXpGainFormatted()
         task.querySelector(".xpLeft", row).textContent = task.getXpLeftFormatted()
 
@@ -297,7 +299,9 @@ function renderSkills() {
         const level_element = task.querySelector(".level", row)
         level_element.textContent = formatLevel(task.level)
         if (task.maxLevel < task.level)
-            level_element.style.color = "green"
+            level_element.classList.add('surpasses');
+        else
+            level_element.classList.remove('surpasses');
         task.querySelector(".xpGain", row).textContent = task.getXpGainFormatted()
         task.querySelector(".xpLeft", row).textContent = task.getXpLeftFormatted()
 
