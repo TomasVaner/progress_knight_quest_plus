@@ -630,7 +630,7 @@ function autoBuy() {
     }   
 }
 
-function autoTouchTheEye()
+function autoTouch()
 {
     if (autoTouchTheEye
         && !isAlive())
@@ -1290,7 +1290,7 @@ function update(needUpdateUI = true) {
     autoPerks()
     autoPromote()
     autoBuy()
-    autoTouchTheEye()
+    autoTouch()
     applyExpenses()
     for (const key in gameData.taskData) {
         const task = gameData.taskData[key]
