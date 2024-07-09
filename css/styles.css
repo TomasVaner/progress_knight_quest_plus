@@ -86,6 +86,10 @@ td {
     background-color: orange !important;    
 }
 
+.surpasses {
+    color: darkgreen
+}
+
 .current-hero {
     background-color: rgb(39, 234, 17) !important;
 }
