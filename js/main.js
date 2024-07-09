@@ -466,7 +466,7 @@ function togglePause() {
 }
 
 function toggleAutoTouchTheEye() {
-    toggleAutoTouchTheEye = !toggleAutoTouchTheEye;
+    autoTouchTheEye = !autoTouchTheEye;
 }
 
 function forceAutobuy() {
