@@ -504,7 +504,7 @@ function renderCurrentChallengeReward(blockclass) {
         if (elementReward.classList.contains(gameData.active_challenge)) {
             elementReward.classList.remove("hidden")
 
-            if (getChallengeBonus(gameData.active_challenge, true) > getChallengeBonus(gameData.active_challenge))
+            if (getChallengeBonus(gameData.active_challenge, true) >= getChallengeBonus(gameData.active_challenge))
                 elementReward.classList.add("reward")
             else
                 elementReward.classList.remove("reward")
