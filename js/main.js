@@ -630,6 +630,29 @@ function autoBuy() {
     }   
 }
 
+function autoBuyEvilPerks() {
+    if (getEyeRequirement() > daysToYears(gameData.days))
+    {
+        if (gameData.evil_perks_points >= getEvilPerkCost(1))
+            buyEvilPerk(1)
+    }
+    else if (getEvilRequirement() > daysToYears(gameData.days))
+    {
+        if (gameData.evil_perks_points >= getEvilPerkCost(2))
+            buyEvilPerk(2)
+    }
+    else if (getVoidRequirement() > daysToYears(gameData.days))
+    {
+        if (gameData.evil_perks_points >= getEvilPerkCost(3))
+            buyEvilPerk(3)
+    }
+    else if (getCelestialRequirement() > daysToYears(gameData.days))
+    {
+        if (gameData.evil_perks_points >= getEvilPerkCost(4))
+            buyEvilPerk(4)
+    }
+}
+
 function autoTouch()
 {
     if (autoTouchTheEye
@@ -1290,6 +1313,7 @@ function update(needUpdateUI = true) {
     autoPerks()
     autoPromote()
     autoBuy()
+    autoBuyEvilPerks()
     autoTouch()
     applyExpenses()
     if (gameData.active_challenge !== "")
