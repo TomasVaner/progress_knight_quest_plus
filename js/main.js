@@ -1315,9 +1315,9 @@ function update(needUpdateUI = true) {
     autoBuy()
     autoBuyEvilPerks()
     autoTouch()
-    applyExpenses()
     if (gameData.active_challenge !== "")
         setChallengeProgress();
+    applyExpenses()
     for (const key in gameData.taskData) {
         const task = gameData.taskData[key]
         if ((task instanceof Skill || task instanceof Job) && gameData.requirements[key].isCompleted()) {
