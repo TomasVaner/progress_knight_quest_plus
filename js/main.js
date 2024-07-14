@@ -474,15 +474,11 @@ function forceAutobuy() {
 }
 
 function setCurrentProperty(propertyName) {
-    if (gameData.paused)
-        return
     autoBuyEnabled = false
     gameData.currentProperty = gameData.itemData[propertyName]
 }
 
 function setMisc(miscName) {
-    if (gameData.paused)
-        return
     autoBuyEnabled = false
     const misc = gameData.itemData[miscName]
     if (gameData.currentMisc.includes(misc)) {
