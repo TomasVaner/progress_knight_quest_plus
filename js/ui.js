@@ -119,6 +119,7 @@ function renderSideBar() {
     document.getElementById("essenceGainButtonDisplay").textContent = "+" + format(getEssenceGain())
 
     document.getElementById("darkMatterDisplay").textContent = format(gameData.dark_matter)
+    document.getElementById("darkMatterAllTimeDisplay").textContent = format(gameData.dark_matter_all_time)
     document.getElementById("darkMatterGainDisplay").textContent = format(getDarkMatterGain())
     document.getElementById("darkMatterGainButtonDisplay").textContent = "+" + format(getDarkMatterGain())
 
@@ -681,6 +682,7 @@ function renderPerks() {
 function renderDarkMatter() {
     // Display currency
     document.getElementById("darkMatterShopDisplay").textContent = format(gameData.dark_matter)
+    document.getElementById("darkMatterAllTimeShopDisplay").textContent = format(gameData.dark_matter_all_time)
     document.getElementById("darkMatterSkillsDisplay").textContent = gameData.settings.layout == 0 ? "" : format(gameData.dark_matter)    
     document.getElementById("darkOrbsShopDisplay").textContent = formatTreshold(gameData.dark_orbs)
 

@@ -17,6 +17,7 @@
     evil_perks_keep: false,
     essence: 0,
     dark_matter: 0,
+    dark_matter_all_time: 0,
     dark_orbs: 0,
     hypercubes: 0,
     perks_points: 0,

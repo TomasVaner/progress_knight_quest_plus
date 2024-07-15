@@ -811,6 +811,7 @@ function rebirthFour() {
     gameData.essence = 0
     gameData.evil = 0
     gameData.dark_matter += getDarkMatterGain()
+    gameData.dark_matter_all_time += getDarkMatterGain()
     gameData.evil_perks_points = 0
     gameData.evil_perks.receive_essence = 0
 
@@ -849,6 +850,7 @@ function rebirthFive() {
     gameData.evil_perks_points = 0
     gameData.evil_perks.receive_essence = 0
     gameData.dark_matter = 0
+    gameData.dark_matter_all_time = 0
     gameData.dark_orbs = 0
     gameData.dark_matter_shop.dark_orb_generator = 0
     gameData.dark_matter_shop.a_miracle = false
@@ -1226,6 +1228,7 @@ function loadGameData() {
             if ("completedTimes" in gameDataSave && gameDataSave["completedTimes"] > 0) {
                 delete gameDataSave["completedTimes"]
                 gameDataSave.dark_matter += 1
+                gameDataSave.dark_matter_all_time += 1
                 console.log("Gave 1 free Dark Matter")
             }
 
@@ -1260,6 +1263,12 @@ function loadGameData() {
 
             if (gameData.dark_matter == null || isNaN(gameData.dark_matter))
                 gameData.dark_matter = 0
+
+            if (gameData.dark_matter_all_time == null || isNaN(gameData.dark_matter_all_time))
+                gameData.dark_matter_all_time = 0
+
+            if (gameData.dark_matter_all_time < gameData.dark_matter)
+                gameData.dark_matter_all_time = gameData.dark_matter
 
             if (gameData.dark_orbs == null || isNaN(gameData.dark_matter) || isNaN(gameData.dark_orbs))
                 gameData.dark_orbs = 0
@@ -1353,7 +1362,11 @@ function applyPerks() {
 
     if (gameData.perks.instant_dark_matter == 1) {
         if (gameData.dark_matter < getDarkMatterGain() * 10)
+        {
+            let dm = gameData.dark_matter
             gameData.dark_matter = getDarkMatterGain() * 10
+            gameData.dark_matter_all_time += gameData.dark_matter - dm;
+        }
     }
 }
 
