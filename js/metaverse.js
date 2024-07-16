@@ -29,12 +29,12 @@ function getBoostCooldownSeconds() {
 }
 
 function canApplyBoost() {
-    return gameData.boost_cooldown <= 0 && !gameData.boost_active;
+    return gameData.boost_cooldown >= getBoostCooldownSeconds() && !gameData.boost_active;
 }
 
 function applyBoost() {
     if (canApplyBoost()) {
-        gameData.boost_timer = getBoostTimeSeconds();
+        gameData.boost_timer = 0;
         gameData.boost_active = true;
     }
 }
@@ -275,8 +275,8 @@ function collectPerkPoints(value) {
 
 function getBoostCooldownString() {
     return gameData.boost_active
-        ? "Active: " + formatTime(gameData.boost_timer)
-        : (gameData.boost_cooldown <= 0 ? "Ready!" : "Cooldown: " + formatTime(gameData.boost_cooldown))
+        ? "Active: " + formatTime(getBoostTimeSeconds() - gameData.boost_timer)
+        : (gameData.boost_cooldown >= getBoostCooldownSeconds() ? "Ready!" : "Cooldown: " + formatTime(getBoostCooldownSeconds() - gameData.boost_cooldown))
 }
 
 function getTimeIsAFlatCircleXP() {

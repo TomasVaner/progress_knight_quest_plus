@@ -541,7 +541,7 @@ function increaseCoins() {
 
 function autoPerks() {
     // perks
-    if (gameData.perks.auto_boost == 1 && !gameData.boost_active && gameData.boost_cooldown <= 0)
+    if (gameData.perks.auto_boost == 1 && !gameData.boost_active && gameData.boost_cooldown >= getBoostCooldownSeconds())
         applyBoost()
 
     if (gameData.perks.auto_dark_orb == 1 && gameData.dark_matter >= getDarkOrbGeneratorCost() * 10 && gameData.dark_orbs != Infinity)
@@ -676,18 +676,18 @@ function increaseRealtime() {
     gameData.rebirthFiveTime += realDiff
 
     if (gameData.boost_active) {
-        gameData.boost_timer -= realDiff
-        if (gameData.boost_timer < 0) {
-            gameData.boost_timer = 0
+        gameData.boost_timer += realDiff
+        if (gameData.boost_timer > getBoostTimeSeconds()) {
+            gameData.boost_timer = getBoostTimeSeconds()
             gameData.boost_active = false
-            gameData.boost_cooldown = getBoostCooldownSeconds()
+            gameData.boost_cooldown = 0
         }
     }
     else {
-        gameData.boost_cooldown -= realDiff
+        gameData.boost_cooldown += realDiff
 
-        if (gameData.boost_cooldown < 0) 
-            gameData.boost_cooldown = 0
+        if (gameData.boost_cooldown > getBoostCooldownSeconds())
+            gameData.boost_cooldown = getBoostCooldownSeconds()
     }
 }
 
@@ -890,8 +890,8 @@ function rebirthFive() {
     gameData.rebirthFiveTime = 0
 
     gameData.boost_active = false
-    gameData.boost_timer = 0
-    gameData.boost_cooldown = 0
+    gameData.boost_timer = 1e6
+    gameData.boost_cooldown = 1e6
 
     gameData.hypercubes = 0
     gameData.metaverse.boost_cooldown_modifier = 1

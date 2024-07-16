@@ -556,7 +556,7 @@ function renderBoostButton(elemName) {
         boostButton.classList.add("perk-boost-active")
         boostButton.classList.remove("perk-boost-cooldown")
     }
-    else if (gameData.boost_cooldown <= 0) {
+    else if (gameData.boost_cooldown >= getBoostCooldownSeconds()) {
         // ready
         boostButton.classList.remove("perk-boost-active")
         boostButton.classList.remove("perk-boost-cooldown")
