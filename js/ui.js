@@ -98,6 +98,7 @@ function renderSideBar() {
     document.getElementById("realtimeDisplay").textContent = formatTime(gameData.realtime)
     document.getElementById("boostCooldownDisplay").textContent = getBoostCooldownString()            
     document.getElementById("pauseButton").textContent = gameData.paused ? "Play" : "Pause"
+    document.getElementById("autoTouchButton").hidden = getLifespan() == Infinity
     document.getElementById("autoTouchButton").textContent = autoTouchTheEye ? "Disable Auto Touch" : "Enable Auto Touch"
     document.getElementById("boostPanel").hidden = gameData.rebirthFiveCount == 0
     renderBoostButton("boostButton")
