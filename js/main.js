@@ -358,7 +358,7 @@ function getEssenceGain() {
     return essenceControl.getEffect() * essenceCollector.getEffect() * transcendentMaster.getEffect()
         * faintHope.getEffect() * rise.getEffect() * getChallengeBonus("dance_with_the_devil")
         * getAGiftFromGodEssenceGain() * darkMagician.getEffect() * getDarkMatterSkillEssence() 
-        * theNewGold * lifeIsValueable *  essenceMultGain()
+        * theNewGold * lifeIsValueable *  essenceMultGain() * gameData.evil_perks.receive_essence_bonus
 }
 
 function getDarkMatterGain() {
@@ -647,6 +647,11 @@ function autoBuyEvilPerks() {
         if (gameData.evil_perks_points >= getEvilPerkCost(4))
             buyEvilPerk(4)
     }
+    else
+    {
+        if (gameData.evil_perks_points >= getEvilPerkCost(5))
+            buyEvilPerk(5)
+    }
 }
 
 function autoTouch()
@@ -729,6 +734,7 @@ function resetEvilPerks(){
         return;
     gameData.evil_perks_points = 0
     gameData.evil_perks.receive_essence = 0
+    gameData.evil_perks.receive_essence_bonus = 1
     
     if (!gameData.evil_perks_keep){
         gameData.evil_perks.reduce_eye_requirement = 0
@@ -814,6 +820,7 @@ function rebirthFour() {
     gameData.dark_matter_all_time += getDarkMatterGain()
     gameData.evil_perks_points = 0
     gameData.evil_perks.receive_essence = 0
+    gameData.evil_perks.receive_essence_bonus = 1
 
     if (gameData.metaverse.challenge_altar == 0 && gameData.perks.save_challenges == 0)  {
         for (const challenge in gameData.challenges) {
@@ -849,6 +856,7 @@ function rebirthFive() {
     gameData.evil = 0
     gameData.evil_perks_points = 0
     gameData.evil_perks.receive_essence = 0
+    gameData.evil_perks.receive_essence_bonus = 1
     gameData.dark_matter = 0
     gameData.dark_matter_all_time = 0
     gameData.dark_orbs = 0
@@ -1282,6 +1290,9 @@ function loadGameData() {
             if (gameData.settings.theme == null) {
                 gameData.settings.theme = 1
             }
+
+            if (gameData.evil_perks.receive_essence_bonus == null || isNaN(gameData.evil_perks.receive_essence_bonus))
+                gameData.evil_perks.receive_essence_bonus = 1;
 
             if (gameData.rebirthOneTime == null || gameData.rebirthOneTime === 0) {
                 gameData.rebirthOneTime = gameData.realtime

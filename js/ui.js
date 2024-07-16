@@ -430,7 +430,7 @@ function renderEvilPerks() {
     document.getElementById("celestialReduceCount").textContent = format(gameData.evil_perks.reduce_celestial_requirement, 0)
     document.getElementById("evilperkCost4").textContent = format(getEvilPerkCost(4))
     
-    document.getElementById("essenceReward").textContent = format(getEssenceReward())
+    document.getElementById("essenceReward").textContent = format(gameData.evil_perks.receive_essence_bonus)
     document.getElementById("essenceRewardPercent").textContent = format(getEssenceRewardPercent(),0)    
     document.getElementById("essenceReceiveCount").textContent = format(gameData.evil_perks.receive_essence, 0)
     document.getElementById("evilperkCost5").textContent = format(getEvilPerkCost(5))

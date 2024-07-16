@@ -12,7 +12,8 @@
         reduce_evil_requirement: 0,
         reduce_the_void_requirement: 0,
         reduce_celestial_requirement: 0,
-        receive_essence: 0
+        receive_essence: 0,
+        receive_essence_bonus: 1
     },
     evil_perks_keep: false,
     essence: 0,

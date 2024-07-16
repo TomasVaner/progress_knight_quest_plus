@@ -35,7 +35,7 @@ function getCelestialRequirement(){
 }
 
 function getEssenceReward(){	
-	return getEssenceRewardPercent() / 100.0 * gameData.essence
+	return getEssenceRewardPercent() / 100.0
 }
 
 function getEssenceRewardPercent(){	
@@ -102,7 +102,7 @@ function buyEvilPerk(evilperknum){
 			{
 				gameData.evil_perks_points -= getEvilPerkCost(5)
 				gameData.evil_perks.receive_essence += 1
-				gameData.essence += getEssenceReward()
+				gameData.evil_perks.receive_essence_bonus *= 1 + getEssenceReward()
 			}
 			break;
 	}
